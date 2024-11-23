@@ -1,0 +1,21 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Key Events Example</title>
+</head>
+<body>
+    <h1>Key Events Demo</h1>
+	<input type="text" id="inputField" placeholder="Type something here..."/>
+    <button id="submitButton">Submit</button>
+    <div id="output" ></div>
+
+    <script>
+		document.getElementById("submitButton").onsubmit = function(event) {
+		            const inputValue = document.getElementById("InputField").value;
+		            document.getElementById("output").innerText = `You typed:`+inputValue;
+		        };
+    </script>
+</body>
+</html>

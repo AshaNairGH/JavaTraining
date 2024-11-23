@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mouse Events Example</title>
+   <style>
+       #hoverDiv {
+           width: 200px;
+           height: 100px;
+           background-color: lightblue;
+           margin: 20px 0;
+           text-align: center;
+           line-height: 100px;
+           border: 1px solid #000;
+       }
+       #dragDiv {
+           width: 100px;
+           height: 100px;
+           background-color: lightcoral;
+           margin-top: 20px;
+           cursor: move;
+       }
+       #dropArea {
+           width: 200px;
+           height: 200px;
+           background-color: lightgreen;
+           border: 1px dashed #000;
+           margin-top: 20px;
+           text-align: center;
+           line-height: 200px;
+       }
+   </style>
+   <script>
+       function showMessage(msg) {
+           document.getElementById("result").innerText = msg;
+       }
+
+       function resetMessage() {
+           document.getElementById("result").innerText = "";
+       }
+
+       document.addEventListener("contextmenu", function(event) {
+           event.preventDefault();
+           showMessage('Right Clicked!');
+       });
+   </script>
+</head>
+<body>
+   <h1>Mouse Events Example</h1>
+   <button id="clickButton" onclick="showMessage('Button Clicked!')">Click Me</button>
+   <div id="hoverDiv" onmouseover="showMessage('Hovered!')" onmouseout="resetMessage()">
+       Hover Over Me
+   </div>
+   <button id="doubleClickButton" ondblclick="showMessage('Button Double Clicked!')">Double Click Me</button>
+   <div id="dragDiv" draggable="true">Drag Me</div>
+   <div id="dropArea" ondragover="event.preventDefault();" ondrop="showMessage('Dropped!')">Drop Here</div>
+   <p id="result"></p>
+</body>
+</html>
